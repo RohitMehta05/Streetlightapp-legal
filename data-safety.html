@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Safety | StreetlightApp by Hbeonlabs Technologies Pvt. Ltd.</title>
+<style>
+  :root{
+    --brand-blue:#1B6FB8;
+    --brand-blue-dark:#0F4C81;
+    --brand-green:#4CAF50;
+    --text-dark:#222831;
+    --text-muted:#5A6270;
+    --bg-light:#F5F8FB;
+    --border-light:#E2E8F0;
+    --white:#ffffff;
+    --max-width:900px;
+    --ok:#2E7D32;
+    --warn:#B26A00;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text-dark);
+    background:var(--bg-light);
+    line-height:1.65;
+  }
+  a{color:var(--brand-blue);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  header.site-header{
+    background:var(--white);
+    border-bottom:1px solid var(--border-light);
+    position:sticky;
+    top:0;
+    z-index:100;
+    box-shadow:0 1px 4px rgba(0,0,0,0.04);
+  }
+  .header-inner{
+    max-width:1100px;
+    margin:0 auto;
+    padding:14px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand img{height:42px;width:auto;display:block;}
+  .brand-text{display:flex;flex-direction:column;line-height:1.15;}
+  .brand-text .company{font-weight:700;font-size:15px;color:var(--brand-blue-dark);}
+  .brand-text .app{font-size:12.5px;color:var(--text-muted);}
+  nav.top-nav{display:flex;gap:6px;flex-wrap:wrap;}
+  nav.top-nav a{
+    font-size:14px;font-weight:600;color:var(--text-muted);
+    padding:8px 14px;border-radius:20px;transition:background .15s,color .15s;
+  }
+  nav.top-nav a:hover{background:var(--bg-light);text-decoration:none;}
+  nav.top-nav a.active{background:var(--brand-blue);color:var(--white);}
+
+  .hero{
+    background:linear-gradient(135deg,var(--brand-blue-dark),var(--brand-blue));
+    color:var(--white);
+    padding:44px 20px 36px;
+    text-align:center;
+  }
+  .hero h1{margin:0 0 8px;font-size:clamp(24px,4vw,34px);}
+  .hero p{margin:0;font-size:15px;opacity:0.92;}
+  .hero .updated{
+    margin-top:14px;display:inline-block;background:rgba(255,255,255,0.15);
+    padding:6px 16px;border-radius:20px;font-size:13px;
+  }
+
+  main{max-width:var(--max-width);margin:0 auto;padding:36px 20px 60px;}
+
+  section.card{
+    background:var(--white);border:1px solid var(--border-light);border-radius:12px;
+    padding:26px 28px;margin-bottom:20px;scroll-margin-top:90px;
+  }
+  section.card h2{
+    margin-top:0;font-size:19px;color:var(--brand-blue-dark);
+    border-bottom:2px solid var(--bg-light);padding-bottom:10px;
+  }
+  section.card p, section.card li{font-size:14.5px;color:var(--text-dark);}
+
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.8px;}
+  th,td{border:1px solid var(--border-light);padding:10px 12px;text-align:left;vertical-align:top;}
+  th{background:var(--bg-light);color:var(--brand-blue-dark);font-weight:600;}
+
+  .pill{display:inline-block;border-radius:20px;padding:3px 12px;font-size:12px;font-weight:700;}
+  .pill-yes{background:#FDECEA;color:#C62828;}
+  .pill-no{background:#E8F5E9;color:var(--ok);}
+  .pill-optional{background:#FFF3E0;color:var(--warn);}
+
+  .summary-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:14px;
+    margin:16px 0;
+  }
+  .summary-box{
+    border:1px solid var(--border-light);
+    border-radius:10px;
+    padding:16px;
+    background:var(--bg-light);
+  }
+  .summary-box .num{font-size:26px;font-weight:800;color:var(--brand-blue-dark);}
+  .summary-box .label{font-size:13px;color:var(--text-muted);}
+
+  .practice-list{list-style:none;padding:0;margin:0;}
+  .practice-list li{
+    display:flex;gap:10px;align-items:flex-start;
+    padding:10px 0;border-bottom:1px solid var(--bg-light);
+    font-size:14.5px;
+  }
+  .practice-list li:last-child{border-bottom:none;}
+  .practice-list .icon{
+    flex:0 0 22px;color:var(--ok);font-weight:800;
+  }
+
+  .cross-links{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;}
+  .cross-links a{
+    background:var(--bg-light);border:1px solid var(--border-light);
+    padding:10px 16px;border-radius:8px;font-weight:600;font-size:14px;color:var(--brand-blue-dark);
+  }
+  .cross-links a:hover{background:var(--brand-blue);color:var(--white);text-decoration:none;}
+
+  footer{background:var(--brand-blue-dark);color:#DCE9F5;padding:34px 20px;font-size:13.5px;}
+  .footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;}
+  .footer-col h4{color:var(--white);margin:0 0 10px;font-size:14px;}
+  .footer-col p, .footer-col a{color:#C9DCEF;margin:4px 0;display:block;}
+  .footer-col a:hover{color:var(--white);}
+  .footer-bottom{
+    text-align:center;margin-top:24px;padding-top:16px;
+    border-top:1px solid rgba(255,255,255,0.15);color:#9FB9D4;font-size:12.5px;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="https://hbeonlabs.com" aria-label="Hbeonlabs Technologies Pvt. Ltd.">
+      <!-- <img src="https://drive.google.com/uc?export=view&id=10kVQ-j0kF0dyPJn6OimTy2BNZ0xRcy_j" alt="Hbeonlabs Technologies Pvt. Ltd. logo"> -->
+      <span class="brand-text">
+        <span class="company">Hbeonlabs Technologies Pvt. Ltd.</span>
+        <span class="app">StreetlightApp — Legal Center</span>
+      </span>
+    </a>
+    <nav class="top-nav">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="data-safety.html" class="active">Data Safety</a>
+      <a href="account-deletion.html">Account Deletion</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>Data Safety</h1>
+  <p>A transparent summary of what data StreetlightApp collects, why, and how it's protected</p>
+  <span class="updated">Last Updated: 12 September 2026</span>
+</div>
+
+<main>
+
+  <section class="card">
+    <h2>Overview</h2>
+    <p>
+      This Data Safety page summarizes how <strong>StreetlightApp</strong>, developed by <strong>Hbeonlabs Technologies Pvt. Ltd.</strong>, collects, uses, shares, and protects data. It is designed to give you a quick, transparent snapshot in addition to our full <a href="privacy-policy.html">Privacy Policy</a>. It follows the spirit of app-store "Data Safety" disclosures used on platforms such as Google Play.
+    </p>
+    <div class="summary-grid">
+      <div class="summary-box"><div class="num">🔒</div><div class="label">Data encrypted in transit (HTTPS/TLS)</div></div>
+      <div class="summary-box"><div class="num">🚫</div><div class="label">We do not sell your personal data</div></div>
+      <div class="summary-box"><div class="num">🗑️</div><div class="label">You can request account &amp; data deletion</div></div>
+      <div class="summary-box"><div class="num">🧭</div><div class="label">Location used only for asset registration</div></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Data Collected &amp; Shared</h2>
+    <p>The table below lists the categories of data StreetlightApp collects, whether each is shared with third parties, and whether collection is required to use the App.</p>
+    <table>
+      <tr>
+        <th>Data Category</th>
+        <th>Collected</th>
+        <th>Shared with 3rd Parties</th>
+        <th>Required / Optional</th>
+        <th>Purpose</th>
+      </tr>
+      <tr>
+        <td>Name (first/last, username)</td>
+        <td><span class="pill pill-yes">Yes</span></td>
+        <td><span class="pill pill-no">No</span></td>
+        <td>Required</td>
+        <td>Account creation &amp; identification</td>
+      </tr>
+      <tr>
+        <td>Email address</td>
+        <td><span class="pill pill-yes">Yes</span></td>
+        <td><span class="pill pill-optional">Service providers only</span></td>
+        <td>Required</td>
+        <td>Account login, OTP verification, notifications</td>
+      </tr>
+      <tr>
+        <td>Phone number</td>
+        <td><span class="pill pill-yes">Yes</span></td>
+        <td><span class="pill pill-optional">Service providers only</span></td>
+        <td>Required</td>
+        <td>Account verification, OTP, support contact</td>
+      </tr>
+      <tr>
+        <td>Password</td>
+        <td><span class="pill pill-yes">Yes (hashed)</span></td>
+        <td><span class="pill pill-no">No</span></td>
+        <td>Required</td>
+        <td>Account authentication</td>
+      </tr>
+      <tr>
+        <td>Precise location (GPS)</td>
+        <td><span class="pill pill-yes">Yes</span></td>
+        <td><span class="pill pill-no">No</span></td>
+        <td>Required for asset registration</td>
+        <td>Geo-tag streetlight/gateway installations on the map</td>
+      </tr>
+      <tr>
+        <td>Approximate location</td>
+        <td><span class="pill pill-yes">Yes</span></td>
+        <td><span class="pill pill-no">No</span></td>
+        <td>Optional fallback</td>
+        <td>General location context when precise location is unavailable</td>
+      </tr>
+      <tr>
+        <td>Camera (barcode/QR scans)</td>
+        <td><span class="pill pill-yes">Yes</span></td>
+        <td><span class="pill pill-no">No</span></td>
+        <td>Optional (used only when scanning)</td>
+        <td>Identify hardware assets quickly</td>
+      </tr>
+      <tr>
+        <td>Photos (profile picture)</td>
+        <td><span class="pill pill-yes">Yes</span></td>
+        <td><span class="pill pill-no">No</span></td>
+        <td>Optional</td>
+        <td>Personalize your user profile</td>
+      </tr>
+      <tr>
+        <td>Streetlight / gateway / ward / address records</td>
+        <td><span class="pill pill-yes">Yes</span></td>
+        <td><span class="pill pill-optional">Within your organization</span></td>
+        <td>Required</td>
+        <td>Core asset management functionality</td>
+      </tr>
+      <tr>
+        <td>Device identifiers &amp; diagnostics</td>
+        <td><span class="pill pill-yes">Yes</span></td>
+        <td><span class="pill pill-optional">Service providers only</span></td>
+        <td>Automatically collected</td>
+        <td>App stability, crash reporting, security</td>
+      </tr>
+      <tr>
+        <td>App activity / usage data</td>
+        <td><span class="pill pill-yes">Yes</span></td>
+        <td><span class="pill pill-no">No</span></td>
+        <td>Automatically collected</td>
+        <td>Improve features and user experience</td>
+      </tr>
+      <tr>
+        <td>Financial / payment data</td>
+        <td><span class="pill pill-no">Not collected</span></td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Security Practices</h2>
+    <ul class="practice-list">
+      <li><span class="icon">✔</span> Data is encrypted in transit between the App and our servers using HTTPS/TLS.</li>
+      <li><span class="icon">✔</span> Passwords are never stored in plain text — they are hashed using industry-standard algorithms.</li>
+      <li><span class="icon">✔</span> Authentication tokens are stored securely on-device and are cleared upon logout or account deletion.</li>
+      <li><span class="icon">✔</span> Access to organizational data is restricted by role (Admin, Client Organization, Team Member, Installer).</li>
+      <li><span class="icon">✔</span> We can review and respond to data deletion requests, as described on our <a href="account-deletion.html">Account Deletion</a> page.</li>
+      <li><span class="icon">✔</span> We do not sell or rent your personal information to advertisers or data brokers.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Independent Security Review</h2>
+    <p>
+      StreetlightApp has not yet undergone a formal independent third-party security audit. We continuously review and improve our internal security practices and will update this page if that status changes.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>Your Controls</h2>
+    <ul>
+      <li>Manage or revoke <strong>Location</strong>, <strong>Camera</strong>, and <strong>Photo Library</strong> permissions anytime from your device's app settings.</li>
+      <li>Edit or update your personal information from the <em>Settings → Personal Info</em> screen in the App.</li>
+      <li>Request full account and data deletion at any time — see <a href="account-deletion.html">Account Deletion</a>.</li>
+      <li>Contact us with any data-related question at <a href="mailto:support.hbeonlabs@gmail.com">support.hbeonlabs@gmail.com</a>.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Learn More</h2>
+    <p>For full legal detail on our data handling practices, please read our complete <a href="privacy-policy.html">Privacy Policy</a>. To close your account and remove your data, visit our <a href="account-deletion.html">Account Deletion</a> page.</p>
+    <div class="cross-links">
+      <a href="privacy-policy.html">📄 Privacy Policy</a>
+      <a href="account-deletion.html">🗑️ Account Deletion</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Hbeonlabs Technologies Pvt. Ltd.</h4>
+      <p>Kasna, Greater Noida,<br>Uttar Pradesh, India – 201310</p>
+      <p>Phone: +91 96660 00112</p>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:hbeonlabs@gmail.com">hbeonlabs@gmail.com</a>
+      <a href="mailto:support.hbeonlabs@gmail.com">support.hbeonlabs@gmail.com</a>
+      <a href="https://hbeonlabs.com">hbeonlabs.com</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="data-safety.html">Data Safety</a>
+      <a href="account-deletion.html">Account Deletion</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 Hbeonlabs Technologies Pvt. Ltd. All rights reserved. | StreetlightApp
+  </div>
+</footer>
+
+</body>
+</html>

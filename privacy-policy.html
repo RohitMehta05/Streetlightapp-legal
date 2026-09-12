@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | StreetlightApp by Hbeonlabs Technologies Pvt. Ltd.</title>
+<style>
+  :root{
+    --brand-blue:#1B6FB8;
+    --brand-blue-dark:#0F4C81;
+    --brand-green:#4CAF50;
+    --text-dark:#222831;
+    --text-muted:#5A6270;
+    --bg-light:#F5F8FB;
+    --border-light:#E2E8F0;
+    --white:#ffffff;
+    --max-width:900px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text-dark);
+    background:var(--bg-light);
+    line-height:1.65;
+  }
+  a{color:var(--brand-blue);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  header.site-header{
+    background:var(--white);
+    border-bottom:1px solid var(--border-light);
+    position:sticky;
+    top:0;
+    z-index:100;
+    box-shadow:0 1px 4px rgba(0,0,0,0.04);
+  }
+  .header-inner{
+    max-width:1100px;
+    margin:0 auto;
+    padding:14px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .brand img{
+    height:42px;
+    width:auto;
+    display:block;
+  }
+  .brand-text{
+    display:flex;
+    flex-direction:column;
+    line-height:1.15;
+  }
+  .brand-text .company{
+    font-weight:700;
+    font-size:15px;
+    color:var(--brand-blue-dark);
+  }
+  .brand-text .app{
+    font-size:12.5px;
+    color:var(--text-muted);
+  }
+  nav.top-nav{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+  }
+  nav.top-nav a{
+    font-size:14px;
+    font-weight:600;
+    color:var(--text-muted);
+    padding:8px 14px;
+    border-radius:20px;
+    transition:background .15s,color .15s;
+  }
+  nav.top-nav a:hover{
+    background:var(--bg-light);
+    text-decoration:none;
+  }
+  nav.top-nav a.active{
+    background:var(--brand-blue);
+    color:var(--white);
+  }
+
+  .hero{
+    background:linear-gradient(135deg,var(--brand-blue-dark),var(--brand-blue));
+    color:var(--white);
+    padding:44px 20px 36px;
+    text-align:center;
+  }
+  .hero h1{margin:0 0 8px;font-size:clamp(24px,4vw,34px);}
+  .hero p{margin:0;font-size:15px;opacity:0.92;}
+  .hero .updated{
+    margin-top:14px;
+    display:inline-block;
+    background:rgba(255,255,255,0.15);
+    padding:6px 16px;
+    border-radius:20px;
+    font-size:13px;
+  }
+
+  main{
+    max-width:var(--max-width);
+    margin:0 auto;
+    padding:36px 20px 60px;
+  }
+
+  .toc{
+    background:var(--white);
+    border:1px solid var(--border-light);
+    border-radius:12px;
+    padding:20px 24px;
+    margin-bottom:32px;
+  }
+  .toc h2{margin-top:0;font-size:16px;color:var(--brand-blue-dark);}
+  .toc ol{margin:0;padding-left:20px;columns:2;column-gap:24px;}
+  .toc li{margin-bottom:6px;font-size:14px;}
+  @media (max-width:640px){ .toc ol{columns:1;} }
+
+  section.card{
+    background:var(--white);
+    border:1px solid var(--border-light);
+    border-radius:12px;
+    padding:26px 28px;
+    margin-bottom:20px;
+    scroll-margin-top:90px;
+  }
+  section.card h2{
+    margin-top:0;
+    font-size:19px;
+    color:var(--brand-blue-dark);
+    border-bottom:2px solid var(--bg-light);
+    padding-bottom:10px;
+  }
+  section.card h3{
+    font-size:15.5px;
+    color:var(--text-dark);
+    margin-bottom:6px;
+  }
+  section.card p, section.card li{
+    font-size:14.5px;
+    color:var(--text-dark);
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:14px 0;
+    font-size:13.8px;
+  }
+  th,td{
+    border:1px solid var(--border-light);
+    padding:10px 12px;
+    text-align:left;
+    vertical-align:top;
+  }
+  th{
+    background:var(--bg-light);
+    color:var(--brand-blue-dark);
+    font-weight:600;
+  }
+  .badge{
+    display:inline-block;
+    background:var(--bg-light);
+    border:1px solid var(--border-light);
+    color:var(--brand-blue-dark);
+    border-radius:20px;
+    padding:2px 10px;
+    font-size:12px;
+    font-weight:600;
+  }
+  .callout{
+    background:#EFF7FF;
+    border-left:4px solid var(--brand-blue);
+    padding:14px 18px;
+    border-radius:6px;
+    font-size:14px;
+    margin:16px 0;
+  }
+  .cross-links{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:8px;
+  }
+  .cross-links a{
+    background:var(--bg-light);
+    border:1px solid var(--border-light);
+    padding:10px 16px;
+    border-radius:8px;
+    font-weight:600;
+    font-size:14px;
+    color:var(--brand-blue-dark);
+  }
+  .cross-links a:hover{
+    background:var(--brand-blue);
+    color:var(--white);
+    text-decoration:none;
+  }
+
+  footer{
+    background:var(--brand-blue-dark);
+    color:#DCE9F5;
+    padding:34px 20px;
+    font-size:13.5px;
+  }
+  .footer-inner{
+    max-width:1100px;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:24px;
+  }
+  .footer-col h4{
+    color:var(--white);
+    margin:0 0 10px;
+    font-size:14px;
+  }
+  .footer-col p, .footer-col a{
+    color:#C9DCEF;
+    margin:4px 0;
+    display:block;
+  }
+  .footer-col a:hover{color:var(--white);}
+  .footer-bottom{
+    text-align:center;
+    margin-top:24px;
+    padding-top:16px;
+    border-top:1px solid rgba(255,255,255,0.15);
+    color:#9FB9D4;
+    font-size:12.5px;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="https://hbeonlabs.com" aria-label="Hbeonlabs Technologies Pvt. Ltd.">
+      <!-- <img src="https://drive.google.com/uc?export=view&id=10kVQ-j0kF0dyPJn6OimTy2BNZ0xRcy_j" alt="Hbeonlabs Technologies Pvt. Ltd. logo"> -->
+      <span class="brand-text">
+        <span class="company">Hbeonlabs Technologies Pvt. Ltd.</span>
+        <span class="app">StreetlightApp — Legal Center</span>
+      </span>
+    </a>
+    <nav class="top-nav">
+      <a href="privacy-policy.html" class="active">Privacy Policy</a>
+      <a href="data-safety.html">Data Safety</a>
+      <a href="account-deletion.html">Account Deletion</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>Privacy Policy</h1>
+  <p>StreetlightApp — a smart streetlight &amp; municipal asset management application</p>
+  <span class="updated">Last Updated: 12 September 2026</span>
+</div>
+
+<main>
+
+  <div class="toc">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#scope">Scope of This Policy</a></li>
+      <li><a href="#data-we-collect">Information We Collect</a></li>
+      <li><a href="#how-we-collect">How We Collect Information</a></li>
+      <li><a href="#permissions">Device Permissions We Request</a></li>
+      <li><a href="#use-of-data">How We Use Your Information</a></li>
+      <li><a href="#legal-basis">Legal Basis for Processing</a></li>
+      <li><a href="#sharing">How We Share Information</a></li>
+      <li><a href="#retention">Data Retention</a></li>
+      <li><a href="#security">Data Security</a></li>
+      <li><a href="#rights">Your Rights &amp; Choices</a></li>
+      <li><a href="#account-deletion-summary">Account Deletion</a></li>
+      <li><a href="#children">Children's Privacy</a></li>
+      <li><a href="#international">International Data Transfers</a></li>
+      <li><a href="#thirdparty">Third-Party Services</a></li>
+      <li><a href="#changes">Changes to This Policy</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ol>
+  </div>
+
+  <section class="card" id="introduction">
+    <h2>1. Introduction</h2>
+    <p>
+      Hbeonlabs Technologies Pvt. Ltd. ("<strong>Hbeonlabs</strong>", "<strong>Company</strong>", "<strong>we</strong>", "<strong>us</strong>", or "<strong>our</strong>") develops and operates <strong>StreetlightApp</strong> (the "<strong>App</strong>"), a mobile application designed for municipalities, local governing bodies (nagarpalikas/wards), field installers, and client organizations to install, monitor, manage, and maintain smart streetlight infrastructure, gateways, and related IoT assets.
+    </p>
+    <p>
+      This Privacy Policy explains what personal information we collect through the App, how we use, store, and share that information, the choices you have, and how you can contact us with questions or requests. By downloading, accessing, or using StreetlightApp, you agree to the collection and use of information in accordance with this Privacy Policy.
+    </p>
+  </section>
+
+  <section class="card" id="scope">
+    <h2>2. Scope of This Policy</h2>
+    <p>This Policy applies to all users of StreetlightApp, including but not limited to:</p>
+    <ul>
+      <li><strong>Client Organization Administrators</strong> — municipal bodies or private clients who register an organization/account on the App.</li>
+      <li><strong>Team Members</strong> who join an existing client organization.</li>
+      <li><strong>Installers</strong> — field technicians who install and register streetlight and gateway hardware.</li>
+      <li><strong>Admin users</strong> who manage nagarpalikas, wards, addresses, teams, and scheduling within the platform.</li>
+    </ul>
+    <p>This Policy does not apply to third-party websites or services that may be linked within the App, which are governed by their own privacy policies.</p>
+  </section>
+
+  <section class="card" id="data-we-collect">
+    <h2>3. Information We Collect</h2>
+
+    <h3>3.1 Information You Provide Directly</h3>
+    <table>
+      <tr><th>Category</th><th>Examples</th></tr>
+      <tr><td>Account &amp; Registration Data</td><td>First name, last name, username, email address, phone number, password (stored in encrypted/hashed form), account type (New Client Organization, Join Existing Team, or Installer), primary client email, and organization details.</td></tr>
+      <tr><td>Profile Information</td><td>Profile photo (optional), personal information viewable/editable from the "Personal Info" settings screen.</td></tr>
+      <tr><td>Verification Data</td><td>One-Time Passwords (OTP) sent to your email/phone for account verification and password recovery.</td></tr>
+      <tr><td>Operational &amp; Asset Data</td><td>Streetlight and gateway records you create (e.g., serial numbers/QR-scanned identifiers, installation address, ward/nagarpalika/municipal-zone assignment, status, notes, schedules), team assignments, and admin configuration data.</td></tr>
+      <tr><td>Communications</td><td>Information you provide when contacting our support team, including the content of your messages and any attachments.</td></tr>
+    </table>
+
+    <h3>3.2 Information Collected Automatically</h3>
+    <table>
+      <tr><th>Category</th><th>Examples</th></tr>
+      <tr><td>Location Data</td><td>Precise (GPS/fine) and approximate (coarse) location, used to geo-tag and register streetlight and gateway assets at the time of installation or inspection.</td></tr>
+      <tr><td>Camera &amp; Scanned Data</td><td>Barcode/QR code data captured through the in-app scanner to identify and register hardware assets. We do not access your camera roll through this feature; images are processed for scanning purposes only.</td></tr>
+      <tr><td>Photos</td><td>Images you choose to upload from your photo library, primarily for setting a profile picture.</td></tr>
+      <tr><td>Device &amp; Technical Data</td><td>Device model, operating system and version, unique device identifiers, app version, language/locale settings, and general diagnostic/crash information.</td></tr>
+      <tr><td>Usage &amp; App Activity</td><td>Screens visited, features used, actions taken (e.g., streetlight added/updated, schedule created), notification interactions, and session/login timestamps.</td></tr>
+      <tr><td>Local App Storage</td><td>Authentication tokens and app preferences stored locally on your device (e.g., via secure local/async storage) to keep you signed in and to remember your settings.</td></tr>
+    </table>
+
+    <div class="callout">
+      We do <strong>not</strong> knowingly collect sensitive financial information (such as card numbers), biometric data, or government identity numbers through StreetlightApp.
+    </div>
+  </section>
+
+  <section class="card" id="how-we-collect">
+    <h2>4. How We Collect Information</h2>
+    <ul>
+      <li><strong>Directly from you</strong> — when you register, log in, complete your profile, add streetlight/gateway records, or contact support.</li>
+      <li><strong>Automatically</strong> — through your use of the App, including via device sensors (GPS, camera) when you grant the relevant permission.</li>
+      <li><strong>From your organization's administrators</strong> — if you are added as a team member by a Client Organization Administrator, they may provide your name, email, and role to create your account.</li>
+    </ul>
+  </section>
+
+  <section class="card" id="permissions">
+    <h2>5. Device Permissions We Request</h2>
+    <p>StreetlightApp requests the following device permissions. You may grant or deny these permissions through your device settings; declining a permission may limit certain features.</p>
+    <table>
+      <tr><th>Permission</th><th>Purpose</th></tr>
+      <tr><td><span class="badge">Location</span> Precise &amp; Approximate</td><td>To capture and record the geographic location of streetlights and gateways at the time of registration or inspection.</td></tr>
+      <tr><td><span class="badge">Camera</span></td><td>To scan barcodes/QR codes printed on streetlight and gateway hardware for quick asset identification.</td></tr>
+      <tr><td><span class="badge">Photo Library</span></td><td>To allow you to select and upload an image to use as your profile picture.</td></tr>
+    </table>
+  </section>
+
+  <section class="card" id="use-of-data">
+    <h2>6. How We Use Your Information</h2>
+    <ul>
+      <li>To create, authenticate, and manage your account and organization.</li>
+      <li>To provide core App functionality — registering, tracking, mapping, and maintaining streetlights and gateways.</li>
+      <li>To assign and manage wards, nagarpalikas, teams, and installation schedules.</li>
+      <li>To send OTPs, transactional emails/SMS, and important service notifications.</li>
+      <li>To provide customer support and respond to inquiries.</li>
+      <li>To monitor, maintain, and improve the App's performance, security, and features.</li>
+      <li>To detect, investigate, and prevent fraud, misuse, or unauthorized access.</li>
+      <li>To comply with applicable legal obligations and enforce our terms.</li>
+    </ul>
+  </section>
+
+  <section class="card" id="legal-basis">
+    <h2>7. Legal Basis for Processing</h2>
+    <p>Where required under applicable law (including India's Digital Personal Data Protection Act, 2023, and, where applicable, other regional data protection laws), we process your personal data on the following bases:</p>
+    <ul>
+      <li><strong>Consent</strong> — for optional features such as profile photos and certain notifications.</li>
+      <li><strong>Performance of a contract</strong> — to provide the App's services to registered users and organizations.</li>
+      <li><strong>Legitimate interests</strong> — to secure, maintain, and improve the App.</li>
+      <li><strong>Legal obligation</strong> — to comply with applicable laws and respond to lawful requests from authorities.</li>
+    </ul>
+  </section>
+
+  <section class="card" id="sharing">
+    <h2>8. How We Share Information</h2>
+    <p>We do not sell your personal information. We may share information in the following limited circumstances:</p>
+    <ul>
+      <li><strong>Within your organization</strong> — data you enter (e.g., streetlight/gateway records) is visible to authorized administrators and team members of your client organization for operational purposes.</li>
+      <li><strong>Service providers</strong> — trusted third-party vendors who help us operate the App (e.g., cloud hosting, SMS/email delivery for OTPs, analytics, crash reporting), bound by confidentiality and data protection obligations.</li>
+      <li><strong>Legal &amp; compliance</strong> — where required to comply with a legal obligation, court order, or governmental request, or to protect the rights, property, or safety of Hbeonlabs, our users, or the public.</li>
+      <li><strong>Business transfers</strong> — in connection with a merger, acquisition, restructuring, or sale of assets, subject to appropriate confidentiality protections.</li>
+    </ul>
+  </section>
+
+  <section class="card" id="retention">
+    <h2>9. Data Retention</h2>
+    <p>
+      We retain personal information for as long as your account remains active or as needed to provide the App's services. We may retain certain information for a longer period where required for legitimate business purposes (such as record-keeping of municipal asset installations), to comply with legal obligations, resolve disputes, and enforce our agreements. Upon a verified account deletion request, we delete or anonymize personal data as described in our <a href="account-deletion.html">Account Deletion</a> page, subject to limited legal retention exceptions.
+    </p>
+  </section>
+
+  <section class="card" id="security">
+    <h2>10. Data Security</h2>
+    <p>
+      We implement reasonable administrative, technical, and physical safeguards designed to protect your information, including encrypted transmission (HTTPS/TLS) between the App and our servers, hashed password storage, access controls, and secure local storage of authentication tokens on your device. However, no method of transmission or storage is 100% secure, and we cannot guarantee absolute security. Please see our <a href="data-safety.html">Data Safety</a> page for a summary of our security practices.
+    </p>
+  </section>
+
+  <section class="card" id="rights">
+    <h2>11. Your Rights &amp; Choices</h2>
+    <p>Depending on your location and applicable law, you may have the right to:</p>
+    <ul>
+      <li><strong>Access</strong> the personal data we hold about you.</li>
+      <li><strong>Correct</strong> inaccurate or incomplete data via the "Personal Info" section of the App.</li>
+      <li><strong>Withdraw consent</strong> for optional data uses (e.g., revoke camera/location/photo permissions from your device settings).</li>
+      <li><strong>Request deletion</strong> of your account and personal data — see our <a href="account-deletion.html">Account Deletion</a> page.</li>
+      <li><strong>Object to or restrict</strong> certain processing activities.</li>
+      <li><strong>Lodge a complaint</strong> with your local data protection authority, where applicable.</li>
+    </ul>
+    <p>To exercise any of these rights, contact us using the details in the <a href="#contact">Contact Us</a> section.</p>
+  </section>
+
+  <section class="card" id="account-deletion-summary">
+    <h2>12. Account Deletion</h2>
+    <p>
+      You may request deletion of your StreetlightApp account and associated personal data at any time. Full details of the process, timelines, and what data is retained versus deleted are available on our dedicated <a href="account-deletion.html">Account Deletion</a> page.
+    </p>
+  </section>
+
+  <section class="card" id="children">
+    <h2>13. Children's Privacy</h2>
+    <p>
+      StreetlightApp is intended for use by adult professionals, municipal staff, installers, and organizational users. It is not directed at children, and we do not knowingly collect personal information from individuals under the age of 18. If we become aware that we have inadvertently collected personal data from a child, we will take steps to delete such information promptly.
+    </p>
+  </section>
+
+  <section class="card" id="international">
+    <h2>14. International Data Transfers</h2>
+    <p>
+      Our servers and service providers may be located in India or other jurisdictions. Where your information is transferred outside your home country, we take reasonable steps to ensure it receives an adequate level of protection consistent with this Policy and applicable law.
+    </p>
+  </section>
+
+  <section class="card" id="thirdparty">
+    <h2>15. Third-Party Services</h2>
+    <p>
+      StreetlightApp may use third-party infrastructure and services (such as cloud hosting, mapping services, push notification providers, and analytics/crash-reporting tools) to operate reliably. These providers process data on our behalf and are contractually obligated to safeguard it and use it only for the purposes we specify.
+    </p>
+  </section>
+
+  <section class="card" id="changes">
+    <h2>16. Changes to This Policy</h2>
+    <p>
+      We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors. We will post the revised policy in the App and/or on our website with an updated "Last Updated" date. Continued use of the App after changes take effect constitutes acceptance of the revised Policy.
+    </p>
+  </section>
+
+  <section class="card" id="contact">
+    <h2>17. Contact Us</h2>
+    <p>If you have questions, concerns, or requests regarding this Privacy Policy or your personal data, please contact us:</p>
+    <table>
+      <tr><th>Company</th><td>Hbeonlabs Technologies Pvt. Ltd.</td></tr>
+      <tr><th>Company Email</th><td><a href="mailto:hbeonlabs@gmail.com">hbeonlabs@gmail.com</a></td></tr>
+      <tr><th>Support Email</th><td><a href="mailto:support.hbeonlabs@gmail.com">support.hbeonlabs@gmail.com</a></td></tr>
+      <tr><th>Phone</th><td><a href="tel:+919666000112">+91 96660 00112</a></td></tr>
+      <tr><th>Website</th><td><a href="https://hbeonlabs.com">https://hbeonlabs.com</a></td></tr>
+      <tr><th>Address</th><td>Kasna, Greater Noida, Uttar Pradesh, India – 201310</td></tr>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Related Legal Pages</h2>
+    <p>For more information about how we handle your data, please also review:</p>
+    <div class="cross-links">
+      <a href="data-safety.html">📋 Data Safety</a>
+      <a href="account-deletion.html">🗑️ Account Deletion</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Hbeonlabs Technologies Pvt. Ltd.</h4>
+      <p>Kasna, Greater Noida,<br>Uttar Pradesh, India – 201310</p>
+      <p>Phone: +91 96660 00112</p>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:hbeonlabs@gmail.com">hbeonlabs@gmail.com</a>
+      <a href="mailto:support.hbeonlabs@gmail.com">support.hbeonlabs@gmail.com</a>
+      <a href="https://hbeonlabs.com">hbeonlabs.com</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="data-safety.html">Data Safety</a>
+      <a href="account-deletion.html">Account Deletion</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 Hbeonlabs Technologies Pvt. Ltd. All rights reserved. | StreetlightApp
+  </div>
+</footer>
+
+</body>
+</html>

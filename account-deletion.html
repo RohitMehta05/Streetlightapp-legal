@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Account Deletion | StreetlightApp by Hbeonlabs Technologies Pvt. Ltd.</title>
+<style>
+  :root{
+    --brand-blue:#1B6FB8;
+    --brand-blue-dark:#0F4C81;
+    --brand-red:#C62828;
+    --text-dark:#222831;
+    --text-muted:#5A6270;
+    --bg-light:#F5F8FB;
+    --border-light:#E2E8F0;
+    --white:#ffffff;
+    --max-width:900px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text-dark);
+    background:var(--bg-light);
+    line-height:1.65;
+  }
+  a{color:var(--brand-blue);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  header.site-header{
+    background:var(--white);border-bottom:1px solid var(--border-light);
+    position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,0.04);
+  }
+  .header-inner{
+    max-width:1100px;margin:0 auto;padding:14px 20px;
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  }
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand img{height:42px;width:auto;display:block;}
+  .brand-text{display:flex;flex-direction:column;line-height:1.15;}
+  .brand-text .company{font-weight:700;font-size:15px;color:var(--brand-blue-dark);}
+  .brand-text .app{font-size:12.5px;color:var(--text-muted);}
+  nav.top-nav{display:flex;gap:6px;flex-wrap:wrap;}
+  nav.top-nav a{
+    font-size:14px;font-weight:600;color:var(--text-muted);
+    padding:8px 14px;border-radius:20px;transition:background .15s,color .15s;
+  }
+  nav.top-nav a:hover{background:var(--bg-light);text-decoration:none;}
+  nav.top-nav a.active{background:var(--brand-blue);color:var(--white);}
+
+  .hero{
+    background:linear-gradient(135deg,var(--brand-blue-dark),var(--brand-blue));
+    color:var(--white);padding:44px 20px 36px;text-align:center;
+  }
+  .hero h1{margin:0 0 8px;font-size:clamp(24px,4vw,34px);}
+  .hero p{margin:0;font-size:15px;opacity:0.92;}
+  .hero .updated{
+    margin-top:14px;display:inline-block;background:rgba(255,255,255,0.15);
+    padding:6px 16px;border-radius:20px;font-size:13px;
+  }
+
+  main{max-width:var(--max-width);margin:0 auto;padding:36px 20px 60px;}
+
+  section.card{
+    background:var(--white);border:1px solid var(--border-light);border-radius:12px;
+    padding:26px 28px;margin-bottom:20px;scroll-margin-top:90px;
+  }
+  section.card h2{
+    margin-top:0;font-size:19px;color:var(--brand-blue-dark);
+    border-bottom:2px solid var(--bg-light);padding-bottom:10px;
+  }
+  section.card h3{font-size:15.5px;margin-bottom:6px;}
+  section.card p, section.card li{font-size:14.5px;color:var(--text-dark);}
+
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.8px;}
+  th,td{border:1px solid var(--border-light);padding:10px 12px;text-align:left;vertical-align:top;}
+  th{background:var(--bg-light);color:var(--brand-blue-dark);font-weight:600;}
+
+  .steps{list-style:none;counter-reset:step;margin:0;padding:0;}
+  .steps li{
+    counter-increment:step;
+    position:relative;
+    padding:14px 14px 14px 52px;
+    margin-bottom:10px;
+    background:var(--bg-light);
+    border-radius:10px;
+    font-size:14.5px;
+  }
+  .steps li::before{
+    content:counter(step);
+    position:absolute;left:14px;top:50%;transform:translateY(-50%);
+    width:26px;height:26px;border-radius:50%;
+    background:var(--brand-blue);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:700;font-size:13px;
+  }
+
+  .method-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:16px;
+    margin:16px 0;
+  }
+  .method-card{
+    border:1px solid var(--border-light);
+    border-radius:10px;
+    padding:18px;
+  }
+  .method-card h3{color:var(--brand-blue-dark);margin-top:0;}
+  .method-card a.btn{
+    display:inline-block;margin-top:10px;
+    background:var(--brand-blue);color:#fff;
+    padding:9px 16px;border-radius:8px;font-weight:600;font-size:13.5px;
+  }
+  .method-card a.btn:hover{background:var(--brand-blue-dark);text-decoration:none;}
+
+  .warning-box{
+    background:#FFF4F4;
+    border-left:4px solid var(--brand-red);
+    padding:14px 18px;
+    border-radius:6px;
+    font-size:14px;
+    margin:16px 0;
+  }
+  .callout{
+    background:#EFF7FF;border-left:4px solid var(--brand-blue);
+    padding:14px 18px;border-radius:6px;font-size:14px;margin:16px 0;
+  }
+
+  .cross-links{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;}
+  .cross-links a{
+    background:var(--bg-light);border:1px solid var(--border-light);
+    padding:10px 16px;border-radius:8px;font-weight:600;font-size:14px;color:var(--brand-blue-dark);
+  }
+  .cross-links a:hover{background:var(--brand-blue);color:var(--white);text-decoration:none;}
+
+  footer{background:var(--brand-blue-dark);color:#DCE9F5;padding:34px 20px;font-size:13.5px;}
+  .footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;}
+  .footer-col h4{color:var(--white);margin:0 0 10px;font-size:14px;}
+  .footer-col p, .footer-col a{color:#C9DCEF;margin:4px 0;display:block;}
+  .footer-col a:hover{color:var(--white);}
+  .footer-bottom{
+    text-align:center;margin-top:24px;padding-top:16px;
+    border-top:1px solid rgba(255,255,255,0.15);color:#9FB9D4;font-size:12.5px;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="https://hbeonlabs.com" aria-label="Hbeonlabs Technologies Pvt. Ltd.">
+      <!-- <img src="https://drive.google.com/uc?export=view&id=10kVQ-j0kF0dyPJn6OimTy2BNZ0xRcy_j" alt="Hbeonlabs Technologies Pvt. Ltd. logo"> -->
+      <span class="brand-text">
+        <span class="company">Hbeonlabs Technologies Pvt. Ltd.</span>
+        <span class="app">StreetlightApp — Legal Center</span>
+      </span>
+    </a>
+    <nav class="top-nav">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="data-safety.html">Data Safety</a>
+      <a href="account-deletion.html" class="active">Account Deletion</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>Account Deletion</h1>
+  <p>How to request deletion of your StreetlightApp account and personal data</p>
+  <span class="updated">Last Updated: 12 September 2026</span>
+</div>
+
+<main>
+
+  <section class="card">
+    <h2>Your Right to Delete</h2>
+    <p>
+      You have the right to request deletion of your StreetlightApp account and the personal data associated with it at any time. This page explains the available methods, what happens to your data, how long it takes, and what (if anything) we retain afterward.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>How to Request Deletion</h2>
+    <div class="method-grid">
+      <div class="method-card">
+        <h3>📱 In-App (Recommended)</h3>
+        <p>Open StreetlightApp → go to <strong>Menu → Settings → Personal Info</strong> → select <strong>Delete Account</strong>, and confirm your request. You may be asked to re-enter your password or verify via OTP for security.</p>
+      </div>
+      <div class="method-card">
+        <h3>✉️ Email Request</h3>
+        <p>Send a deletion request from your registered email address to our support team, including your registered username or phone number for verification.</p>
+        <a class="btn" href="mailto:support.hbeonlabs@gmail.com?subject=StreetlightApp%20Account%20Deletion%20Request">Email Support</a>
+      </div>
+      <div class="method-card">
+        <h3>📞 Phone Support</h3>
+        <p>Call our support line and our team will guide you through identity verification and the deletion process.</p>
+        <a class="btn" href="tel:+919666000112">Call +91 96660 00112</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Deletion Process</h2>
+    <ol class="steps">
+      <li>Submit your deletion request via the App, email, or phone as described above.</li>
+      <li>We verify your identity (via OTP, registered email, or account credentials) to prevent unauthorized deletion.</li>
+      <li>If you are the sole administrator of a Client Organization, we may confirm reassignment of organization data/ownership before proceeding, so operational streetlight/gateway records are not orphaned.</li>
+      <li>We process the deletion of your personal account data within <strong>30 days</strong> of a verified request.</li>
+      <li>You will receive a confirmation email once your account and associated personal data have been deleted.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>What Gets Deleted</h2>
+    <table>
+      <tr><th>Data</th><th>Deleted?</th></tr>
+      <tr><td>Name, username, email address, phone number</td><td>Deleted</td></tr>
+      <tr><td>Password (hashed credentials)</td><td>Deleted</td></tr>
+      <tr><td>Profile photo</td><td>Deleted</td></tr>
+      <tr><td>Saved authentication tokens / local app data</td><td>Deleted</td></tr>
+      <tr><td>Personal account settings and preferences</td><td>Deleted</td></tr>
+      <tr><td>Location history tied directly to your personal profile</td><td>Deleted</td></tr>
+    </table>
+
+    <h3 style="margin-top:20px;">What May Be Retained</h3>
+    <p>Certain information may be retained for a limited period even after account deletion, where necessary for legitimate business, legal, security, or record-keeping purposes:</p>
+    <table>
+      <tr><th>Data</th><th>Reason for Retention</th></tr>
+      <tr><td>Streetlight, gateway, ward, and installation records you created on behalf of a client organization</td><td>These are organizational/municipal infrastructure records, not personal data, and remain part of the client organization's operational history.</td></tr>
+      <tr><td>Transaction, support, or communication logs</td><td>Legal, accounting, dispute-resolution, and fraud-prevention purposes.</td></tr>
+      <tr><td>Aggregated or anonymized usage data</td><td>No longer identifies you personally and is used for analytics/product improvement.</td></tr>
+      <tr><td>Backup copies</td><td>May persist in encrypted backups for a limited period before being purged in the normal backup rotation cycle.</td></tr>
+    </table>
+  </section>
+
+  <div class="callout" style="margin:0 20px;">
+    Data that is retained for legal or operational reasons (as described above) is disassociated from your personal identity wherever possible and is not used for any further active processing.
+  </div>
+
+  <section class="card" style="margin-top:20px;">
+    <h2>Important Notes</h2>
+    <div class="warning-box">
+      <strong>Account deletion is permanent and cannot be undone.</strong> Once your account is deleted, you will lose access to your profile, saved settings, and personal history within the App. If you are part of an organization, deleting your personal account does not delete the organization's streetlight/gateway records — only your individual access and profile data.
+    </div>
+    <ul>
+      <li>If you only wish to stop receiving notifications or temporarily stop using the App, you do not need to delete your account — you can log out or adjust notification settings instead.</li>
+      <li>If you are an Installer or Team Member, please coordinate with your organization's Administrator, as they may need to reassign your pending tasks before deletion.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Need Help?</h2>
+    <p>If you have questions about the deletion process or the status of your request, please reach out:</p>
+    <table>
+      <tr><th>Support Email</th><td><a href="mailto:support.hbeonlabs@gmail.com">support.hbeonlabs@gmail.com</a></td></tr>
+      <tr><th>Company Email</th><td><a href="mailto:hbeonlabs@gmail.com">hbeonlabs@gmail.com</a></td></tr>
+      <tr><th>Phone</th><td><a href="tel:+919666000112">+91 96660 00112</a></td></tr>
+      <tr><th>Address</th><td>Kasna, Greater Noida, Uttar Pradesh, India – 201310</td></tr>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Related Legal Pages</h2>
+    <p>To understand how your data is collected and protected, review our other legal pages:</p>
+    <div class="cross-links">
+      <a href="privacy-policy.html">📄 Privacy Policy</a>
+      <a href="data-safety.html">📋 Data Safety</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Hbeonlabs Technologies Pvt. Ltd.</h4>
+      <p>Kasna, Greater Noida,<br>Uttar Pradesh, India – 201310</p>
+      <p>Phone: +91 96660 00112</p>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:hbeonlabs@gmail.com">hbeonlabs@gmail.com</a>
+      <a href="mailto:support.hbeonlabs@gmail.com">support.hbeonlabs@gmail.com</a>
+      <a href="https://hbeonlabs.com">hbeonlabs.com</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="data-safety.html">Data Safety</a>
+      <a href="account-deletion.html">Account Deletion</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 Hbeonlabs Technologies Pvt. Ltd. All rights reserved. | StreetlightApp
+  </div>
+</footer>
+
+</body>
+</html>
